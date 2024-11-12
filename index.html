@@ -17,12 +17,44 @@
     </header>
 
     <main>
+      <dialog id="add-book-modal">
+        <form>
+          <h2>Book details</h2>
+          <p>Required fields are marked with <span aria-label="required">*</span></p>
+          <label for="book-name">
+            Book*:
+            <input type="text" name="book-name" id="book-name">
+          </label>
+          <label for="author-name">
+            Author:
+            <input type="text" name="author-name" id="author-name">
+          </label>
+          <label for="year">
+            Year:
+            <input type="tel" name="year" id="year" maxlength="4">
+          </label>
+          <label for="cover-img">
+            Cover image url:
+            <input type="url" name="cover-img" id="cover-img">
+          </label>
+          <button formmethod="dialog" formnovalidate>Cancel</button>
+          <button class="confirm-btn">Confirm</button>
+        </form>
+      </dialog>
+      <div class="library">
 
+      </div>
+      <button type="button" class="add-book-btn">+</button>
     </main>
 
     <footer>
-      Abhinav Gangwar(TurbulentTomato) <a href="https://github.com/TurbulentTomato"><img src="" alt="github-logo"></a>
+      Abhinav Gangwar(TurbulentTomato)
+      <a href="https://github.com/TurbulentTomato">
+        <img src="" alt="github-logo" width="50px" height="50px">
+      </a>
     </footer>
+
+    <script src="js/script.js"></script>
   </div>
 </body>
 
