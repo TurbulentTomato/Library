@@ -63,6 +63,8 @@ h6 {
 :root {
   --bg-dark: #293241;
   --bg-header: #00A896;
+  --valid-green: green;
+  --invalid-red: red;
   --article-width: 200px;
   --article-height: 300px;
 }
@@ -73,8 +75,29 @@ body {
   display: flex;
 }
 
-input {
+input[type="checkbox"] {
   appearance: none;
+  margin: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid black;
+  border-radius: 5px;
+  display: grid;
+  place-content: center;
+
+  &::before {
+    content: "";
+    border-radius: 2px;
+    width: 0.75em;
+    height: 0.75em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1.5em 1.5em var(--valid-green);
+  }
+
+  &:checked::before {
+    transform: scale(1);
+  }
 }
 
 .container {
@@ -155,7 +178,8 @@ article {
   }
 
   button,
-  input {
+  input,
+  #book-read-checkbox {
     position: absolute;
     width: 32px;
     height: 32px;
@@ -166,11 +190,14 @@ article {
   #book-read-checkbox {
     top: 0px;
     left: 0px;
-    background-color: red;
+    background-color: #fff;
 
-    &:checked {
-      background-color: green;
+    &::before {
+      border-radius: 50%;
+      width: 1.5em;
+      height: 1.5em;
     }
+
   }
 
   #favourite-btn {
@@ -194,6 +221,54 @@ footer {
   background-color: var(--bg-dark);
 }
 
-dialog {
+#add-book-modal {
   margin: auto;
+  border: none;
+  border-radius: 10px;
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  p {
+    margin-bottom: 5px;
+  }
+
+  input:not([type="checkbox"]) {
+    display: block;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-bottom: 5px;
+
+    &:focus {
+      outline: none;
+      border: 2px solid blue;
+    }
+  }
+
+  .checkbox-label {
+    display: grid;
+    grid-template-columns: 3em 1em;
+    align-items: center;
+    margin: 8px 0;
+  }
+
+  .buttons {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+
+    button {
+      flex: 1;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      background-color: var(--invalid-red);
+
+      &.confirm-btn {
+        background-color: var(--valid-green);
+      }
+    }
+  }
+
 }
