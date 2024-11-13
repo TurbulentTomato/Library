@@ -26,7 +26,8 @@ confirmBtn.addEventListener("click", (event) => {
     coverImgEl.value,
     readBookEl.checked
   );
-  createBookCard(book);
+  addBookToLibrary(createBookCard(book));
+  bookModal.close();
 })
 
 function Book(name, author, year, coverImg, read) {
@@ -47,10 +48,14 @@ function createBookCard(book) {
           <p>
             <span id="title">Title: ${book.name}</span>
             <span id="author">Author: ${book.author}</span>
-            <span id="year">Year: ${book.year}</span>
+            <span id="book-year">Year: ${book.year}</span>
           </p>
         </div>
         <button type="button" id="favourite-btn">Fav</button>
 `;
   return article;
+}
+
+function addBookToLibrary(bookArticle) {
+  library.appendChild(bookArticle);
 }
