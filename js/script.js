@@ -25,8 +25,7 @@ confirmBtn.addEventListener("click", (event) => {
       coverImgEl.value,
       readBookEl.checked
     );
-    books.push(book);
-    addBookToLibrary(createBookCard(book));
+    addBookToLibrary(book);
   }
   bookModal.close();
 })
@@ -39,9 +38,17 @@ function Book(name, author, year, coverImg, read) {
   this.read = read;
 }
 
+function addBookToLibrary(newBook) {
+  books.push(newBook);
+  library.innerHTML = "";
+  for (const book of books) {
+    library.innerHTML += createBookCard(book);
+  }
+}
+
 function createBookCard(book) {
-  const article = document.createElement("article");
-  article.innerHTML = `
+  const article = `
+    <article>
         <input type="checkbox" value="this.read" id="book-read-checkbox">
         <button type="button" class="del-book-btn">×</button>
         <div class="book">
@@ -53,10 +60,7 @@ function createBookCard(book) {
           </p>
         </div>
         <button type="button" id="favourite-btn">Fav</button>
+    </article>
 `;
   return article;
-}
-
-function addBookToLibrary(bookArticle) {
-  library.appendChild(bookArticle);
 }
