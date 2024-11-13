@@ -11,14 +11,16 @@ let books = [
   new Book("One Piece", "Oda", 1997, "nope", false)
 ];
 
-
 renderBooks();
+/*Checks which element on book card was clicked and proceeds accordingly*/
 document.querySelector(".library").addEventListener("click", (event) => {
-  console.log("hello")
-  if (Array.from(event.target.classList).includes("book-read-checkbox")) {
-    console.log("inside if")
+  let classList = Array.from(event.target.classList);
+  if (classList.includes("book-read-checkbox")) {
     toggleReadCheckbox(event.target);
-  }
+  } /*else if (classList.includes("del-book-btn")) {
+    console.log("delete");
+    deleteBook(event.target)
+  }*/
 })
 //opens modal
 addBookBtn.addEventListener("click", () => {
@@ -67,10 +69,10 @@ function renderBooks() {
 
 function createBookCard(book) {
   const article = `
-    <article>
+    <article data-index="${books.indexOf(book)}">
         <input type="checkbox" value="${(book.read)}" 
          class="book-read-checkbox" ${(book.read) ? "checked" : "unchecked"} 
-         data-index="${books.indexOf(book)}">
+         >
         <button type="button" class="del-book-btn">×</button>
         <div class="book">
           <img src="${book.coverImg}" alt="Cover Image" width="200px" height="300px">
@@ -86,8 +88,9 @@ function createBookCard(book) {
   return article;
 }
 
+/*Toggles the read property of book*/
 function toggleReadCheckbox(checkbox) {
-  let bookIndex = Number(checkbox.dataset.index);
+  let bookIndex = Number(checkbox.closest("[data-index]").dataset.index);
   console.log(bookIndex)
   books[bookIndex].toggleRead();
   renderBooks();
