@@ -16,17 +16,16 @@ addBookBtn.addEventListener("click", () => {
 //closes modal
 confirmBtn.addEventListener("click", (event) => {
   event.preventDefault();
-  if (bookNameEl.value === "") {
-    bookModal.close();
+  if (bookNameEl.value !== "") {
+    let book = new Book(
+      bookNameEl.value,
+      authorNameEl.value,
+      bookYearEl.value,
+      coverImgEl.value,
+      readBookEl.checked
+    );
+    addBookToLibrary(createBookCard(book));
   }
-  let book = new Book(
-    bookNameEl.value,
-    authorNameEl.value,
-    bookYearEl.value,
-    coverImgEl.value,
-    readBookEl.checked
-  );
-  addBookToLibrary(createBookCard(book));
   bookModal.close();
 })
 
