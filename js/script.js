@@ -18,10 +18,9 @@ document.querySelector(".library").addEventListener("click", (event) => {
   let bookIndex = getIndex(event.target);
   if (classList.includes("book-read-checkbox")) {
     toggleReadCheckbox(bookIndex);
-  } /*else if (classList.includes("del-book-btn")) {
-    console.log("delete");
-    deleteBook(event.target);
-}*/
+  } else if (classList.includes("del-book-btn")) {
+    deleteBook(bookIndex);
+  }
 })
 //opens modal
 addBookBtn.addEventListener("click", () => {
@@ -94,9 +93,12 @@ function getIndex(element) {
 }
 /*Toggles the read property of book*/
 function toggleReadCheckbox(bookIndex) {
-  console.log(bookIndex)
   books[bookIndex].toggleRead();
   renderBooks();
 }
 
+function deleteBook(bookIndex) {
+  books.splice(bookIndex, 1);
+  renderBooks();
+}
 
