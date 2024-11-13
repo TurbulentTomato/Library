@@ -179,7 +179,7 @@ article {
 
   button,
   input,
-  #book-read-checkbox {
+  .book-read-checkbox {
     position: absolute;
     width: 32px;
     height: 32px;
@@ -187,7 +187,7 @@ article {
     border: 1px solid black;
   }
 
-  #book-read-checkbox {
+  .book-read-checkbox {
     top: 0px;
     left: 0px;
     background-color: #fff;
@@ -200,7 +200,7 @@ article {
 
   }
 
-  #favourite-btn {
+  .favourite-btn {
     bottom: 0px;
     right: 0px;
   }

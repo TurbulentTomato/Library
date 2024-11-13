@@ -62,18 +62,25 @@ function renderBooks() {
 function createBookCard(book) {
   const article = `
     <article>
-        <input type="checkbox" value="this.read" id="book-read-checkbox">
+        <input type="checkbox" value="${(book.read)}" 
+         class="book-read-checkbox" ${(book.read) ? "checked" : "unchecked"}> 
         <button type="button" class="del-book-btn">×</button>
         <div class="book">
           <img src="${book.coverImg}" alt="Cover Image" width="200px" height="300px">
           <p>
-            <span id="title">Title: ${book.name}</span>
-            <span id="author">Author: ${book.author}</span>
-            <span id="book-year">Year: ${book.year}</span>
+            <span class="title">Title: ${book.name}</span>
+            <span class="author">Author: ${book.author}</span>
+            <span class="book-year">Year: ${book.year}</span>
           </p>
         </div>
-        <button type="button" id="favourite-btn">Fav</button>
+        <button type="button" class="favourite-btn">Fav</button>
     </article>
 `;
   return article;
 }
+
+/*Book.prototype.toggleRead = function() {
+  this.read = !(this.read);
+}*/
+
+
