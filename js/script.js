@@ -49,6 +49,7 @@ function Book(name, author, year, coverImg, read) {
 
 function addBookToLibrary(newBook) {
   books.push(newBook);
+  renderBooks();
 }
 
 function renderBooks() {
