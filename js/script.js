@@ -15,12 +15,13 @@ renderBooks();
 /*Checks which element on book card was clicked and proceeds accordingly*/
 document.querySelector(".library").addEventListener("click", (event) => {
   let classList = Array.from(event.target.classList);
+  let bookIndex = getIndex(event.target);
   if (classList.includes("book-read-checkbox")) {
-    toggleReadCheckbox(event.target);
+    toggleReadCheckbox(bookIndex);
   } /*else if (classList.includes("del-book-btn")) {
     console.log("delete");
-    deleteBook(event.target)
-  }*/
+    deleteBook(event.target);
+}*/
 })
 //opens modal
 addBookBtn.addEventListener("click", () => {
@@ -88,9 +89,11 @@ function createBookCard(book) {
   return article;
 }
 
+function getIndex(element) {
+  return Number(element.closest("[data-index]")?.dataset.index);
+}
 /*Toggles the read property of book*/
-function toggleReadCheckbox(checkbox) {
-  let bookIndex = Number(checkbox.closest("[data-index]").dataset.index);
+function toggleReadCheckbox(bookIndex) {
   console.log(bookIndex)
   books[bookIndex].toggleRead();
   renderBooks();
