@@ -63,12 +63,18 @@ h6 {
 :root {
   --bg-dark: #293241;
   --bg-header: #00A896;
+  --article-width: 200px;
+  --article-height: 300px;
 }
 
 body {
   min-width: 100vw;
   min-height: 100vh;
   display: flex;
+}
+
+input {
+  appearance: none;
 }
 
 .container {
@@ -94,9 +100,13 @@ header {
 }
 
 main {
+  padding: 16px;
+
   .library {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(var(--article-width), 1fr));
+    grid-template-rows: var(--article-height);
+    gap: 16px;
   }
 
   .add-book-btn {
@@ -107,6 +117,72 @@ main {
     bottom: 5px;
     right: 5px;
   }
+}
+
+article {
+  display: grid;
+  grid-template-rows: 1fr;
+  position: relative;
+  border: 2px solid black;
+  border-radius: 8px;
+  overflow: hidden;
+
+  background-image: linear-gradient(lightblue, blue);
+
+  div {
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      text-align: center;
+    }
+
+    p {
+      position: absolute;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      width: 100%;
+      padding: 0.5rem;
+      font-weight: bold;
+
+      span {
+        display: block;
+      }
+    }
+  }
+
+  button,
+  input {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid black;
+  }
+
+  #book-read-checkbox {
+    top: 0px;
+    left: 0px;
+    background-color: red;
+
+    &:checked {
+      background-color: green;
+    }
+  }
+
+  #favourite-btn {
+    bottom: 0px;
+    right: 0px;
+  }
+
+  .del-book-btn {
+    top: 0px;
+    right: 0px;
+  }
+
 }
 
 footer {
