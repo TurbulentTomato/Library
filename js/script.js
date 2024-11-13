@@ -7,6 +7,7 @@ const authorNameEl = document.querySelector("#author-name");
 const bookYearEl = document.querySelector("#year");
 const coverImgEl = document.querySelector("#cover-img");
 const readBookEl = document.querySelector("#read");
+let books = [];
 
 //opens modal
 addBookBtn.addEventListener("click", () => {
@@ -24,6 +25,7 @@ confirmBtn.addEventListener("click", (event) => {
       coverImgEl.value,
       readBookEl.checked
     );
+    books.push(book);
     addBookToLibrary(createBookCard(book));
   }
   bookModal.close();
@@ -43,7 +45,7 @@ function createBookCard(book) {
         <input type="checkbox" value="this.read" id="book-read-checkbox">
         <button type="button" class="del-book-btn">×</button>
         <div class="book">
-          <img src="${book.coverImg}" alt="Cover Image">
+          <img src="${book.coverImg}" alt="Cover Image" width="200px" height="300px">
           <p>
             <span id="title">Title: ${book.name}</span>
             <span id="author">Author: ${book.author}</span>
