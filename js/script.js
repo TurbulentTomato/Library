@@ -7,8 +7,17 @@ const authorNameEl = document.querySelector("#author-name");
 const bookYearEl = document.querySelector("#year");
 const coverImgEl = document.querySelector("#cover-img");
 const readBookEl = document.querySelector("#read");
-let books = [];
+let books = [
+  {
+    name: "One piece",
+    author: "Oda",
+    year: 1997,
+    coverImg: "",
+    read: false
+  }
+];
 
+renderBooks();
 //opens modal
 addBookBtn.addEventListener("click", () => {
   bookModal.showModal();
@@ -40,6 +49,9 @@ function Book(name, author, year, coverImg, read) {
 
 function addBookToLibrary(newBook) {
   books.push(newBook);
+}
+
+function renderBooks() {
   library.innerHTML = "";
   for (const book of books) {
     library.innerHTML += createBookCard(book);
