@@ -7,8 +7,9 @@ const authorNameEl = document.querySelector("#author-name");
 const bookYearEl = document.querySelector("#year");
 const coverImgEl = document.querySelector("#cover-img");
 const readBookEl = document.querySelector("#read");
+const favCheckEl = document.querySelector("#fav-check");
 let books = [
-  new Book("One Piece", "Oda", 1997, "nope", false)
+  new Book("One Piece", "Oda", 1997, "nope", false, true)
 ];
 
 renderBooks();
@@ -20,6 +21,8 @@ document.querySelector(".library").addEventListener("click", (event) => {
     toggleReadCheckbox(bookIndex);
   } else if (classList.includes("del-book-btn")) {
     deleteBook(bookIndex);
+  } else if (classList.includes("favourite-check")) {
+    toggleFav(bookIndex);
   }
 })
 //opens modal
@@ -36,7 +39,8 @@ confirmBtn.addEventListener("click", (event) => {
       authorNameEl.value,
       bookYearEl.value,
       coverImgEl.value,
-      readBookEl.checked
+      readBookEl.checked,
+      favCheckEl.checked
     );
     addBookToLibrary(book);
     //reset form after book is created 
@@ -45,16 +49,21 @@ confirmBtn.addEventListener("click", (event) => {
   bookModal.close();
 })
 
-function Book(name, author, year, coverImg, read) {
+function Book(name, author, year, coverImg, read, fav) {
   this.name = name;
   this.author = author;
   this.year = year;
   this.coverImg = coverImg;
   this.read = read;
+  this.fav = fav;
 }
 
 Book.prototype.toggleRead = function() {
   this.read = !(this.read);
+}
+
+Book.prototype.toggleFavourite = function() {
+  this.fav = !(this.fav);
 }
 
 function addBookToLibrary(newBook) {
@@ -84,7 +93,7 @@ function createBookCard(book) {
             <span class="book-year">Year: ${book.year}</span>
           </p>
         </div>
-        <input type="checkbox" class="favourite-check">
+        <input type="checkbox" class="favourite-check" ${(book.fav) ? "checked" : "unchecked"}>
     </article>
 `;
   return article;
@@ -101,6 +110,11 @@ function toggleReadCheckbox(bookIndex) {
 
 function deleteBook(bookIndex) {
   books.splice(bookIndex, 1);
+  renderBooks();
+}
+
+function toggleFav(bookIndex) {
+  books[bookIndex].toggleFavourite();
   renderBooks();
 }
 
