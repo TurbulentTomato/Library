@@ -84,7 +84,7 @@ function createBookCard(book) {
             <span class="book-year">Year: ${book.year}</span>
           </p>
         </div>
-        <button type="button" class="favourite-btn">Fav</button>
+        <input type="checkbox" class="favourite-check">
     </article>
 `;
   return article;
