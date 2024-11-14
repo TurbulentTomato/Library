@@ -39,6 +39,8 @@ confirmBtn.addEventListener("click", (event) => {
       readBookEl.checked
     );
     addBookToLibrary(book);
+    //reset form after book is created 
+    bookModal.querySelector("form").reset();
   }
   bookModal.close();
 })
