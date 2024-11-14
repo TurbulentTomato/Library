@@ -88,7 +88,7 @@ input[type="checkbox"] {
   place-content: center;
 }
 
-#read::before,
+dialog input[type=checkbox]::before,
 .book-read-checkbox::before {
   content: "";
   border-radius: 2px;
@@ -99,7 +99,7 @@ input[type="checkbox"] {
   box-shadow: inset 1.5em 1.5em var(--valid-green);
 }
 
-#read:checked::before,
+dialog input[type="checkbox"]:checked::before,
 .book-read-checkbox:checked::before {
   scale: 1;
 }
@@ -278,7 +278,8 @@ footer {
 
   .checkbox-label {
     display: grid;
-    grid-template-columns: 3em 1em;
+    grid-template-columns: 1em auto;
+    gap: 10px;
     align-items: center;
     margin: 8px 0;
   }
