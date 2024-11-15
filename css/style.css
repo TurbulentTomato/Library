@@ -119,6 +119,11 @@ header {
 
   button {
     width: 5rem;
+
+    &:active {
+      background-color: #189AB4;
+      color: #fff;
+    }
   }
 
   input {
@@ -133,7 +138,7 @@ header {
 }
 
 main {
-  padding: 16px;
+  padding: 25px 16px;
 
   .library {
     display: grid;
@@ -161,7 +166,6 @@ article {
   display: grid;
   grid-template-rows: 1fr;
   position: relative;
-  border: 2px solid black;
   border-radius: 8px;
   overflow: hidden;
 
@@ -217,7 +221,7 @@ article {
     background-color: #fff;
     border-radius: 0;
     rotate: -45deg;
-    transition: 500ms ease-out;
+    /*  transition: 500ms ease-out; */
 
     &::before,
     &::after {
@@ -226,7 +230,7 @@ article {
       width: 17px;
       height: 17px;
       background-color: white;
-      transition: 500ms ease-out;
+      /* transition: 500ms ease-out; */
 
     }
 
@@ -317,4 +321,23 @@ footer {
     }
   }
 
+}
+
+/*transution*/
+
+article,
+header input,
+header button,
+.buttons button {
+  transition: 200ms ease-out;
+
+  &:hover {
+    translate: 0px -5px;
+    box-shadow: 0px 2px 6px black;
+
+    * {
+      transition: 200ms ease-out;
+      opacity: 1;
+    }
+  }
 }
