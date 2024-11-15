@@ -328,12 +328,14 @@ footer {
 article,
 header input,
 header button,
-.buttons button {
+.buttons button,
+.add-book-btn {
   transition: 200ms ease-out;
 
   &:hover {
     translate: 0px -5px;
     box-shadow: 0px 2px 6px black;
+    opacity: 1;
 
     * {
       transition: 200ms ease-out;
