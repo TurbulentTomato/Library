@@ -67,6 +67,11 @@ h6 {
   --invalid-red: red;
   --article-width: 200px;
   --article-height: 300px;
+  font-family: sans-serif;
+}
+
+h1 {
+  font-family: serif;
 }
 
 body {
