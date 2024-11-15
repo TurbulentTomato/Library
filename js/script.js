@@ -9,7 +9,37 @@ const coverImgEl = document.querySelector("#cover-img");
 const readBookEl = document.querySelector("#read");
 const favCheckEl = document.querySelector("#fav-check");
 let books = [
-  new Book("One Piece", "Oda", 1997, "nope", false, true)
+  new Book(
+    "One Piece",
+    "Oda",
+    1997,
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJjM3lEeiGFxNJJ9XByO5hn3deRCMgeXd2ZYMJigS0ycBFbblfRx5yiL8H&s=10",
+    true,
+    true),
+  new Book(
+    "Macbeth",
+    "Skaespeare",
+    1623,
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ52-5Ge0wxrvHy3WvANTxnsUmR9RoEm9WYbg&usqp=CAU",
+    true,
+    false
+  ),
+  new Book(
+    "The Time Machine",
+    "H G Wells",
+    1895,
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIQKkZwKL1iqvaZFhZYXX09fXTJpaG-LCxZbL3qhHB431uVXtpibQI5sU&s=10",
+    true,
+    false
+  ),
+  new Book(
+    "Merchant Of Venice",
+    "Shakespeare",
+    "1600",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJb8WmTy8p57zK1gudELXZdNo3jDLQ9P2-17asBd3ASPnfUdx2Zamn-m6n&s=10",
+    true,
+    false
+  )
 ];
 
 renderBooks();
