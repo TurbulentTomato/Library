@@ -210,6 +210,12 @@ article {
     border-radius: 50%;
     border: 1px solid black;
     opacity: 0.5;
+
+    &::before {
+      width: 1.5em;
+      height: 1.5em;
+      border-radius: 50%;
+    }
   }
 
   .book-read-checkbox {
