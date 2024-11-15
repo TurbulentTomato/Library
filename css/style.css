@@ -123,7 +123,8 @@ header {
   background-color: var(--bg-header);
 
   button {
-    width: 5rem;
+    width: clamp(50px, 5rem, 200px);
+    font-size: clamp(1rem, 1.3rem, 40px);
 
     &:active {
       background-color: #189AB4;
@@ -132,7 +133,9 @@ header {
   }
 
   input {
+    min-width: 100px;
     flex: 1;
+    padding: 0 0.5rem;
   }
 
   input,
