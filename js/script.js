@@ -42,6 +42,14 @@ let books = [
   )
 ];
 
+if (JSON.parse(localStorage.getItem("books"))) {
+  books = []
+  JSON.parse(localStorage.getItem("books")).forEach(book => {
+    book = new Book(book.name, book.author, book.year, book.coverImg, book.read, book.fav)
+    books.push(book)
+  })
+}
+
 renderBooks();
 /*Checks which element on book card was clicked and proceeds accordingly*/
 document.querySelector(".library").addEventListener("click", (event) => {
@@ -106,6 +114,7 @@ function renderBooks() {
   for (const book of books) {
     library.innerHTML += createBookCard(book);
   }
+  saveToLocalStorage();
 }
 
 function createBookCard(book) {
@@ -146,5 +155,8 @@ function deleteBook(bookIndex) {
 function toggleFav(bookIndex) {
   books[bookIndex].toggleFavourite();
   renderBooks();
+}
+function saveToLocalStorage() {
+  localStorage.setItem("books", JSON.stringify(books));
 }
 
