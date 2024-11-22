@@ -8,6 +8,7 @@ const bookYearEl = document.querySelector("#year");
 const coverImgEl = document.querySelector("#cover-img");
 const readBookEl = document.querySelector("#read");
 const favCheckEl = document.querySelector("#fav-check");
+const coverPreview = document.querySelector("form img")
 let books = [
   new Book(
     "One Piece",
@@ -86,7 +87,9 @@ confirmBtn.addEventListener("click", (event) => {
   }
   bookModal.close();
 })
-
+coverImgEl.addEventListener("input", () => {
+  coverPreview.src = coverImgEl.value;
+})
 function Book(name, author, year, coverImg, read, fav) {
   this.name = name;
   this.author = author;
