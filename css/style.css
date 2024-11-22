@@ -301,15 +301,29 @@ footer {
     background-color: rgba(0, 0, 0, 0.8);
   }
 
-  p {
-    margin-bottom: 5px;
+  form {
+    display: grid;
+    gap: 5px;
+  }
+
+
+  img {
+    display: block;
+    width: var(--article-width);
+    height: var(--article-height);
+    border-radius: 8px;
+    border: none;
+    object-fit: cover;
+    place-self: center;
+    background-color: #888;
+    color: #fff;
+    text-align: center;
   }
 
   input:not([type="checkbox"]) {
     display: block;
     border: 2px solid black;
     border-radius: 5px;
-    margin-bottom: 5px;
 
     &:focus {
       outline: none;
@@ -322,7 +336,7 @@ footer {
     grid-template-columns: 1em auto;
     gap: 10px;
     align-items: center;
-    margin: 8px 0;
+    margin: 3px 0;
   }
 
   .buttons {
